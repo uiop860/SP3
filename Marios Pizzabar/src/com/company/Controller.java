@@ -9,7 +9,7 @@ public class Controller {
     // ui interface
 
 
-    Order fisk = new Order(1,1,"lort",23232323);
+
 
     private static Order addedOrder;
     static Scanner scan = new Scanner(System.in);
@@ -44,12 +44,12 @@ public class Controller {
                     break;
                 case "2":
 
-                    // remove an existing order
-                    for (int i = 0; i < orderArr.size(); i++) {
-                        orderArr.contains();
-                    }
-
-                    orderArr.remove();
+//                    // remove an existing order
+//                    for (int i = 0; i < orderArr.size(); i++) {
+//                        orderArr.contains();
+//                    }
+//
+//                    orderArr.remove();
 
 
 
@@ -63,7 +63,7 @@ public class Controller {
         String tempOrder;
 
 
-        System.out.println("Enter name, phonenumber and pizzaId");
+        System.out.println("Enter name, phonenumber and pizza nr.");
         tempOrder = promptForAnswer();
 
         //Split input and convert string to int
@@ -92,11 +92,11 @@ public class Controller {
     public static void addOrder(String name, int phoneNumber, int pizzaIndex){
 
         Menu menu = new Menu();
-        
+
 
         int orderId = 1;
 
-        addedOrder = new Order(1,menu.getMenuArr().get(pizzaIndex).toString(),name,phoneNumber);
+        addedOrder = new Order(1,menu.getArray(pizzaIndex,1),name,phoneNumber);
         orderArr.add(addedOrder);
     }
 

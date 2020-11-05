@@ -13,6 +13,9 @@ public class Main {
 //        System.out.println(orders.orderArr.get(0).toString());
 //        System.out.println(orders.orderArr.get(1).toString());
 
+        Menu menu = new Menu();
+        //menu.readMenu(1);
+        menu.menuToArray();
         Controller.showMenu();
 
 

@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Menu
 {
+
+    public String[][] array;
     public void readMenu(int index)
     {
 
@@ -84,7 +86,7 @@ public class Menu
             {
                 arrayMenu.add(line.split(csvSplit));
             }
-            String[][] array = new String[arrayMenu.size()][0];
+            array = new String[arrayMenu.size()][0];
             arrayMenu.toArray(array);
 
         }
@@ -111,6 +113,11 @@ public class Menu
 
 
         }
+    }
+
+
+    public String getArray(int a, int b) {
+        return array[a][b];
     }
 }
 
