@@ -53,6 +53,7 @@ public class Controller {
 
                     Menu menuOne = new Menu();
                     menuOne.readMenu();
+                    Controller.showMenu();
 
 
                     break;
@@ -62,9 +63,6 @@ public class Controller {
                 case"4":
 
 
-                    Menu menuOne = new Menu();
-                    menuOne.readMenu();
-                    Controller.showMenu();
 
                     break;
 
