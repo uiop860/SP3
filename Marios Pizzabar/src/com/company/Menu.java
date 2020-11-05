@@ -12,18 +12,10 @@ public class Menu
     public void readMenu(int index)
     {
 
-        String path = "";
+        String path = "MenuIngredients.csv";
         String line = "";
         BufferedReader br = null;
         String csvSplit = ",";
-        if (index == 1)
-        {
-            path = "Menu.csv";
-        }
-        else if (index == 2)
-        {
-            path = "MenuIngredients.csv";
-        }
 
         try
         {
@@ -31,14 +23,7 @@ public class Menu
             while ((line = br.readLine()) != null)
             {
                 String[] pizzas = line.split(csvSplit);
-                if (index == 1)
-                {
-                    System.out.println(pizzas[0] + " " + pizzas[1] + " " + pizzas[2] + "kr.");
-                }
-                else if (index == 2)
-                {
-                    System.out.println(pizzas[0] + " " + pizzas[1] + " " + pizzas[2] + " " + pizzas[3] + "kr.");
-                }
+                System.out.println(pizzas[0] + " " + pizzas[1] + " " + pizzas[2] + " " + pizzas[3] + "kr.");
 
             }
 
