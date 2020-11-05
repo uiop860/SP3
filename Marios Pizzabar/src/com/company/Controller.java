@@ -65,14 +65,11 @@ public class Controller {
         intAnswer[1] = Integer.parseInt(strAnswer[2]);
 
 
+        //Add order to array
         addOrder(strAnswer[0],intAnswer[0],intAnswer[1]);
-        //create a new order from the input
-        //order.addOrder();
         System.out.println("Order for " + strAnswer[0] + " added");
 
-/*        //test if order is created
-        System.out.println(order.orderArr.get(0).toString());
-        Controller.showMenu();*/
+
     }
 
 
