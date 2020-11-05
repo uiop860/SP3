@@ -23,7 +23,7 @@ public class Controller {
             System.out.println("1) Add a new order");
             System.out.println("2) Show menu");
             System.out.println("3) Show current orders");
-            System.out.println("4) Remove order and save order");
+            System.out.println("4) Remove and save order");
             System.out.println("9) Exit program");
 
             switch (scan.nextLine()) {
