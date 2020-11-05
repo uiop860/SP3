@@ -21,7 +21,7 @@ public class Controller {
 
         while (!finish) {
             System.out.println("1) Add a new order");
-            
+
             switch (scan.nextLine()) {
                 case "1":
                     // Adding a new order
