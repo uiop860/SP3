@@ -52,6 +52,7 @@ public class Controller {
 
         String tempOrder;
 
+
         System.out.println("Enter name, phonenumber and pizzaId");
         tempOrder = promptForAnswer();
 
@@ -63,8 +64,8 @@ public class Controller {
         intAnswer[0] = Integer.parseInt(strAnswer[1]);
         intAnswer[1] = Integer.parseInt(strAnswer[2]);
 
-        Order addOrder = new Order(35831,strAnswer[0],strAnswer[1],intAnswer[2]);
-        addOrder.addOrder();
+
+        addOrder(strAnswer[0],intAnswer[0],intAnswer[1]);
         //create a new order from the input
         //order.addOrder();
         System.out.println("Order for " + strAnswer[0] + " added");
@@ -77,6 +78,19 @@ public class Controller {
 
     public static String promptForAnswer() {
         return scan.nextLine();
+    }
+
+    static ArrayList<Order> orderArr = new ArrayList();
+
+    public static void addOrder(String name, int phoneNumber, int pizzaIndex){
+
+        Menu menu = new Menu();
+        menu.menuConstructor();
+
+        int orderId = 1;
+
+        Order test = new Order(1,menu.getMenuArr().get(pizzaIndex).toString(),name,phoneNumber);
+        orderArr.add(test);
     }
 
 

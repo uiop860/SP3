@@ -17,18 +17,7 @@ public class Order  {
         this.phoneNumber = phoneNumber;
     }
 
-    public ArrayList<Order> orderArr = new ArrayList();
 
-    public void addOrder(String name, int phoneNumber, int pizzaIndex){
-
-        Menu menu = new Menu();
-        menu.menuConstructor();
-
-        int orderId = 1;
-
-        Order test = new Order(1,menu.getMenuArr().get(1).toString(),"Susanne",20139103);
-        orderArr.add(test);
-    }
 
     @Override
     public String toString() {
