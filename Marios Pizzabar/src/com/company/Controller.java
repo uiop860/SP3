@@ -92,7 +92,7 @@ public class Controller {
     public static void addOrder(String name, int phoneNumber, int pizzaIndex){
 
         Menu menu = new Menu();
-        menu.menuConstructor();
+        
 
         int orderId = 1;
 
