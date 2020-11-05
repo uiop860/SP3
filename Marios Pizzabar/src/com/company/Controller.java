@@ -31,7 +31,6 @@ public class Controller {
                     while (!isSuccessful) {
                         try {
                             Controller.addOrderController();
-                            System.out.println("1) Add a new order");
                             isSuccessful = true;
                         } catch (NumberFormatException e) {
                             System.out.println("Error: Phone number and pizzaID must be a number");
@@ -47,6 +46,9 @@ public class Controller {
                 case "2":
                     Menu menuOne = new Menu();
                     menuOne.readMenu();
+                    Controller.showMenu();
+                    break;
+
                     
 
 
