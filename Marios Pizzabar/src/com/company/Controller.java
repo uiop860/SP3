@@ -22,9 +22,11 @@ public class Controller {
         while (!finish) {
             System.out.println("1) Add a new order");
             System.out.println("2) Show menu");
+
             System.out.println("3) Show current orders");
             System.out.println("4) Remove order and save order");
             System.out.println("9) Exit program");
+
 
 
             switch (scan.nextLine()) {
@@ -49,6 +51,7 @@ public class Controller {
                     break;
                 case "2":
 
+
                     Menu menuOne = new Menu();
                     menuOne.readMenu();
 
@@ -59,10 +62,16 @@ public class Controller {
                     break;
                 case"4":
 
-                    break;
-                case "9":
+
+                    Menu menuOne = new Menu();
+                    menuOne.readMenu();
+                    Controller.showMenu();
 
                     break;
+
+
+                    break;
+
 
                     
 
