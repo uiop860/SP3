@@ -21,6 +21,7 @@ public class Controller {
 
         while (!finish) {
             System.out.println("1) Add a new order");
+            System.out.println("1) Show menu");
 
             switch (scan.nextLine()) {
                 case "1":
@@ -44,13 +45,7 @@ public class Controller {
                     Controller.showMenu();
                     break;
                 case "2":
-
-//                    // remove an existing order
-//                    for (int i = 0; i < orderArr.size(); i++) {
-//                        orderArr.contains();
-//                    }
-//
-//                    orderArr.remove();
+                    
 
 
 
