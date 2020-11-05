@@ -5,9 +5,13 @@ import java.util.ArrayList;
 
 public class Controller {
 
+
     // ui interface
 
 
+    Order fisk = new Order(1,1,"lort",23232323);
+
+    private static Order addedOrder;
     static Scanner scan = new Scanner(System.in);
 
 
@@ -41,6 +45,12 @@ public class Controller {
                 case "2":
 
                     // remove an existing order
+                    for (int i = 0; i < orderArr.size(); i++) {
+                        orderArr.contains();
+                    }
+
+                    orderArr.remove();
+
 
 
             }
@@ -86,8 +96,8 @@ public class Controller {
 
         int orderId = 1;
 
-        Order test = new Order(1,menu.getMenuArr().get(pizzaIndex).toString(),name,phoneNumber);
-        orderArr.add(test);
+        addedOrder = new Order(1,menu.getMenuArr().get(pizzaIndex).toString(),name,phoneNumber);
+        orderArr.add(addedOrder);
     }
 
 
