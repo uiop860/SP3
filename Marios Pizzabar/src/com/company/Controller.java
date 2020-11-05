@@ -21,7 +21,7 @@ public class Controller {
 
         while (!finish) {
             System.out.println("1) Add a new order");
-            System.out.println("1) Show menu");
+            System.out.println("2) Show menu");
 
             switch (scan.nextLine()) {
                 case "1":
@@ -45,6 +45,8 @@ public class Controller {
                     Controller.showMenu();
                     break;
                 case "2":
+                    Menu menuOne = new Menu();
+                    menuOne.readMenu();
                     
 
 
