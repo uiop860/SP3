@@ -1,39 +1,116 @@
 package com.company;
 
+import java.io.*;
 import java.util.ArrayList;
-
-public class Menu {
-
-    public ArrayList<Pizza> menuArr = new ArrayList<>();
-
-    public void menuConstructor(){
-        Pizza pizza1 = new Pizza(1,"Vesuvio","Tomatsauce, ost, oregano, skinke ",57);
-        Pizza pizza2 = new Pizza(2,"Amerikaner","Tomatsauce, ost, oregano, oksefars ", 53);
-        Pizza pizza3 = new Pizza(3, "Cacciatore","Tomatsauce, ost, oregano, pepperoni",57 );
-        Pizza pizza4 = new Pizza(4,"Carbona", "Tomatsauce, ost, oregano, kødsauce, spaghetti, cocktailpølser",63);
-        Pizza pizza5 = new Pizza(5,"Dennis", "Tomatsauce, ost, oregano, pepperoni, cocktailpølser",65);
-//        Pizza pizza6 = new Pizza(6,);
-//        Pizza pizza7 = new Pizza(7, );
-//        Pizza pizza8 = new Pizza(8, );
-//        Pizza pizza9 = new Pizza(9,);
-//        Pizza pizza10 = new Pizza(10,);
-//        Pizza pizza11 = new Pizza(11,);
-//        Pizza pizza12 = new Pizza(12,);
-//        Pizza pizza13 = new Pizza(13,);
-//        Pizza pizza14 = new Pizza(14,);
+import java.util.List;
 
 
+public class Menu
+{
+    public void readMenu(int index)
+    {
 
-        menuArr.add(pizza1);
-        menuArr.add(pizza2);
-        menuArr.add(pizza3);
-        menuArr.add(pizza4);
-        menuArr.add(pizza5);
+        String path = "";
+        String line = "";
+        BufferedReader br = null;
+        String csvSplit = ",";
+        if (index == 1)
+        {
+            path = "Menu.csv";
+        }
+        else if (index == 2)
+        {
+            path = "MenuIngredients.csv";
+        }
+
+        try
+        {
+            br = new BufferedReader(new FileReader(path));
+            while ((line = br.readLine()) != null)
+            {
+                String[] pizzas = line.split(csvSplit);
+                if (index == 1)
+                {
+                    System.out.println(pizzas[0] + " " + pizzas[1] + " " + pizzas[2] + "kr.");
+                }
+                else if (index == 2)
+                {
+                    System.out.println(pizzas[0] + " " + pizzas[1] + " " + pizzas[2] + " " + pizzas[3] + "kr.");
+                }
+
+            }
 
 
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            if (br != null)
+            {
+                try
+                {
+                    br.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
     }
 
-    public ArrayList<Pizza> getMenuArr() {
-        return menuArr;
+
+    public void menuToArray()
+    {
+
+        String path = "Menu.csv";
+        String line = "";
+        BufferedReader br = null;
+        String csvSplit = ",";
+
+        try
+        {
+            List<String[]> arrayMenu = new ArrayList<String[]>();
+            br = new BufferedReader(new FileReader(path));
+            while ((line = br.readLine()) != null)
+            {
+                arrayMenu.add(line.split(csvSplit));
+            }
+            String[][] array = new String[arrayMenu.size()][0];
+            arrayMenu.toArray(array);
+
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            if (br != null)
+            {
+                try
+                {
+                    br.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }
     }
 }
+
