@@ -92,6 +92,7 @@ public class Controller {
     public static void addOrder(String name, int phoneNumber, int pizzaIndex){
 
         Menu menu = new Menu();
+        menu.menuToArray();
 
 
         int orderId = 1;
