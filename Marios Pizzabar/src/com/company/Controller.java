@@ -20,7 +20,8 @@ public class Controller {
         boolean finish = false;
 
         while (!finish) {
-            System.out.println("Press '1' to place a new order, or '2' to remove an existing order");
+            System.out.println("1) Add a new order");
+            
             switch (scan.nextLine()) {
                 case "1":
                     // Adding a new order
