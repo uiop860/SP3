@@ -22,6 +22,12 @@ public class Controller {
         while (!finish) {
             System.out.println("1) Add a new order");
             System.out.println("2) Show menu");
+ HEAD
+
+            System.out.println("3) Show current orders");
+            System.out.println("4) Remove order and save order");
+            System.out.println("9) Exit program");
+ main
 
             switch (scan.nextLine()) {
                 case "1":
@@ -31,7 +37,6 @@ public class Controller {
                     while (!isSuccessful) {
                         try {
                             Controller.addOrderController();
-                            System.out.println("1) Add a new order");
                             isSuccessful = true;
                         } catch (NumberFormatException e) {
                             System.out.println("Error: Phone number and pizzaID must be a number");
@@ -45,6 +50,17 @@ public class Controller {
                     Controller.showMenu();
                     break;
                 case "2":
+
+                    break;
+                case "3":
+
+                    break;
+                case"4":
+
+                    break;
+                case "9":
+
+                    break;
                     
                     
 
