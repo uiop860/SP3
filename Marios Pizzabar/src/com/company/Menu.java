@@ -10,7 +10,7 @@ public class Menu {
     public String[][] array;
 
 
-    public void readMenu(int index) {
+    public void readMenu() {
 
         String path = "MenuIngredients.csv";
         String line = "";

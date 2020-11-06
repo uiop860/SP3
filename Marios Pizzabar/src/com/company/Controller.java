@@ -50,7 +50,7 @@ public class Controller {
 
                 case "2":
                     System.out.println("-------------------------------------------");
-                    menuPrinter();
+                    menu.readMenu();
                     System.out.println("-------------------------------------------");
 
                     Controller.showMenu();
@@ -118,9 +118,7 @@ public class Controller {
         addedOrder = new Order(1,menu.getArray(pizzaIndex,1),name,phoneNumber);
         orderArr.add(addedOrder);
     }
-    public static void menuPrinter() {
-        for (int i = 0; i < 1; i++) {
-            menu.readMenu(i);
-        }
-    }
+
 }
+
+
