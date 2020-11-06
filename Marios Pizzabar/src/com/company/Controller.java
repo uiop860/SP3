@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Controller {
+    private static Menu menu = new Menu();
 
 
     // ui interface
@@ -44,10 +45,16 @@ public class Controller {
                             System.out.println("Try again");
                         }
                     }
-
+                    System.out.println("-------------------------------------------");
                     Controller.showMenu();
                     break;
+
                 case "2":
+                    System.out.println("-------------------------------------------");
+                    menu.readMenu();
+                    System.out.println("-------------------------------------------");
+
+                    Controller.showMenu();
 
                     break;
                 case "3":
@@ -57,7 +64,9 @@ public class Controller {
 
                     break;
                 case "9":
-
+                    System.out.println("-------------------------------------------");
+                    System.out.println("Closing down the system");
+                    System.out.println("-------------------------------------------");
                     break;
                     
                     
@@ -102,7 +111,7 @@ public class Controller {
 
     public static void addOrder(String name, int phoneNumber, int pizzaIndex){
 
-        Menu menu = new Menu();
+       // Menu menu = new Menu();
         menu.menuToArray();
 
 
@@ -112,5 +121,6 @@ public class Controller {
         orderArr.add(addedOrder);
     }
 
-
 }
+
+
