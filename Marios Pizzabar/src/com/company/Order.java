@@ -13,7 +13,6 @@ public class Order  {
 
     public Order(int orderID, String date, String name, int phoneNumber) {
         this.orderID = orderID;
-
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.date = date;
@@ -21,20 +20,12 @@ public class Order  {
     }
 
 
-    @Override
-    public String toString() {
-        return  "orderID: " + orderID +
-                "\tname: " + name +
-                "\tphoneNumber: " + phoneNumber +
-                "\tdate: " + date ;
-    }
-
     public int getOrderID() {
-        //orderID = ++orderID;
         return orderID;
     }
 
     public ArrayList<Pizza> getPizzas() {
+
         return Pizzas;
     }
 

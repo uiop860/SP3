@@ -3,21 +3,14 @@ package com.company;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Controller {
 
+    private static Scanner scan = new Scanner(System.in);
     private static Menu menu = new Menu();
-    Order order;
-
-
-    // ui interface
-
-
-
-    static int orderId = 1;
-    static ArrayList<Order> orderArr = new ArrayList();
-    private static Order addedOrder;
-    static Scanner scan = new Scanner(System.in);
+    private static ArrayList<Order> orderArr = new ArrayList();
+    public static int orderId = 1;
 
 
     public static void showMenu() {
@@ -35,9 +28,6 @@ public class Controller {
 
             switch (scan.nextLine()) {
                 case "1":
-                    // Adding a new order
-
-                    boolean isAlsoSuccessful =false;
 
                     Controller.addOrderTryCatch();
                     Controller.showMenu();
@@ -60,9 +50,6 @@ public class Controller {
                         System.out.println(order);
                         System.out.println(order.getPizzas());
 
-
-
-
                     }
                     System.out.println("-------------------------------------------");
                     Controller.showMenu();
@@ -73,7 +60,7 @@ public class Controller {
 
                     System.out.println("-------------------------------------------");
                     System.out.println("Enter OrderId to remove order");
-                    Controller.removeAndSaveOrder();
+                    Controller.removeAndSaveOrder(Integer.parseInt(Controller.promptForAnswer()));
                     System.out.println("Order has been removed");
                     Controller.showMenu();
 
@@ -83,10 +70,6 @@ public class Controller {
                     System.out.println("Closing down the system");
                     System.out.println("-------------------------------------------");
                     break;
-                    
-                    
-
-
 
             }
             finish=true;
@@ -94,42 +77,52 @@ public class Controller {
     }
 
 
-    public static void removeAndSaveOrder(){
+    public static void removeAndSaveOrder(int orderIdInput){
+
+        Predicate<Order> condition = orderArr -> orderArr.getOrderID() == orderIdInput;
+
+        orderArr.removeIf(condition);
 
 
+    }
+
+
+    public static void addOrderTryCatch(){
+
+        boolean isSuccessful = false;
+
+        while (!isSuccessful) {
+            try {
+                Controller.addOrderController();
+                isSuccessful = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Phone number and pizzaID must be a number");
+                System.out.println("Try again");
+            } catch (ArrayIndexOutOfBoundsException f) {
+                System.out.println("Error: All fields must be filled");
+                System.out.println("Try again");
             }
-
-
-
-
-
-
-
+        }
+    }
 
     public static void addOrderController() {
 
         String input;
+        Date date = new Date();
 
 
         System.out.println("Enter name, phonenumber");
         input = promptForAnswer();
 
-        //Split input and convert string to int
+        //Split input
         String[] strAnswer = input.split("\\s");
 
         //convert string to int
         int phoneNumber = Integer.parseInt(strAnswer[1]);
 
-
-
-        Date date = new Date();
         Order tempOrder = new Order(orderId++,date.toString(),strAnswer[0],phoneNumber);
-
         addPizzaToOrder(tempOrder);
-
         orderArr.add(tempOrder);
-
-        //Add order to array
         System.out.println("Order for " + strAnswer[0] + " added");
 
 
@@ -156,31 +149,9 @@ public class Controller {
         }
     }
 
-
     public static String promptForAnswer() {
         return scan.nextLine();
     }
-
-
-
-    public static void addOrderTryCatch(){
-
-        boolean isSuccessful = false;
-
-        while (!isSuccessful) {
-            try {
-                Controller.addOrderController();
-                isSuccessful = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Error: Phone number and pizzaID must be a number");
-                System.out.println("Try again");
-            } catch (ArrayIndexOutOfBoundsException f) {
-                System.out.println("Error: All fields must be filled");
-                System.out.println("Try again");
-            }
-        }
-    }
-
 
 }
 

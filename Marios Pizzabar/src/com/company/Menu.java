@@ -2,12 +2,11 @@ package com.company;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
+
 
 
 public class Menu {
 
-    public String[][] array;
     public ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
 
@@ -23,8 +22,6 @@ public class Menu {
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] pizzas = line.split(csvSplit);
-//                System.out.println(pizzas[0] + " " + pizzas[1] + " " + pizzas[2] + " " + pizzas[3] + " Kr.");
-
                 int id = Integer.parseInt(pizzas[0]);
                 String name = pizzas[1];
                 String ingredients = pizzas[2];
@@ -85,10 +82,6 @@ public class Menu {
 //        }
 //    }
 
-
-    public String getArray(int a, int b) {
-        return array[a][b];
-    }
 
 }
 
