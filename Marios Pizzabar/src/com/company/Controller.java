@@ -47,7 +47,8 @@ public class Controller {
                         }
                     }
                     System.out.println("-------------------------------------------");
-                    System.out.println("Would you like to add another pizza? ");
+                    System.out.println("1) Add another pizza");
+                    System.out.println("2) Finish your order");
                     if (scan.nextLine().equals("1")){
                         Controller.addOrderController();
                         orderId = orderId + 1;
