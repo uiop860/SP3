@@ -1,5 +1,6 @@
 package com.company;
 
+import java.sql.SQLOutput;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -63,14 +64,21 @@ public class Controller {
                     break;
                 case "3":
                     System.out.println("-------------------------------------------");
-                    for (int i = 0; i <orderArr.size() ; i++) {
-                        System.out.println(orderArr.get(i));
+                    for (Order order : orderArr) {
+                        System.out.println(order);
                     }
                     System.out.println("-------------------------------------------");
                     Controller.showMenu();
 
                     break;
                 case"4":
+
+
+                    System.out.println("-------------------------------------------");
+                    System.out.println("Enter OrderId to remove order");
+                    Controller.removeAndSaveOrder();
+                    System.out.println("Order has been removed");
+                    Controller.showMenu();
 
                     break;
                 case "9":
@@ -85,6 +93,19 @@ public class Controller {
             }
             finish=true;
         }
+    }
+
+
+    public static void removeAndSaveOrder(){
+
+//       int value = Integer.parseInt(scan.nextLine());
+//       orderArr.remove(orderArr.contains(orderId = value));
+       orderArr.remove(0);
+
+       orderArr.contains(order)
+
+
+
     }
 
     public static void addOrderController() {
