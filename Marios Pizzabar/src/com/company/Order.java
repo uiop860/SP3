@@ -21,17 +21,14 @@ public class Order  {
     }
 
 
-
     @Override
     public String toString() {
-        return "Order{" +
-                "orderID=" + orderID +
-                ", pizza='" + pizza + '\'' +
-                ", name='" + name + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                '}';
+        return  "orderID: " + orderID +
+                "\tname: " + name +
+                "\tphoneNumber: " + phoneNumber +
+                "\tpizza: " + pizza +
+                "\tdate: " + date ;
     }
-
 
     public int getOrderID() {
         orderID = ++orderID;

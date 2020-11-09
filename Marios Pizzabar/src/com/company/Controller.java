@@ -13,7 +13,7 @@ public class Controller {
 
 
     static int orderId = 0;
-
+    static ArrayList<Order> orderArr = new ArrayList();
     private static Order addedOrder;
     static Scanner scan = new Scanner(System.in);
 
@@ -32,31 +32,24 @@ public class Controller {
             switch (scan.nextLine()) {
                 case "1":
                     // Adding a new order
-                    boolean isSuccessful = false;
 
-                    while (!isSuccessful) {
-                        try {
-                            Controller.addOrderController();
-                            isSuccessful = true;
-                        } catch (NumberFormatException e) {
-                            System.out.println("Error: Phone number and pizzaID must be a number");
-                            System.out.println("Try again");
-                        } catch (ArrayIndexOutOfBoundsException f) {
-                            System.out.println("Error: All fields must be filled");
-                            System.out.println("Try again");
+                    boolean isAlsoSuccessful =false;
+
+                    Controller.addOrderTryCatch();
+
+                    while(!isAlsoSuccessful) {
+                        System.out.println("-------------------------------------------");
+                        System.out.println("1) Add another pizza");
+                        System.out.println("2) Finish your order");
+                        if (scan.nextLine().equals("1")) {
+                            Controller.addOrderTryCatch();
+
+                        } else {
+                            orderId = orderId + 1;
+                            Controller.showMenu();
+                            isAlsoSuccessful = true;
                         }
                     }
-                    System.out.println("-------------------------------------------");
-                    System.out.println("1) Add another pizza");
-                    System.out.println("2) Finish your order");
-                    if (scan.nextLine().equals("1")){
-                        Controller.addOrderController();
-                        orderId = orderId + 1;
-                    } else {
-                        orderId = orderId + 1;
-                        Controller.showMenu();
-                    }
-                    Controller.showMenu();
 
                     break;
 
@@ -69,8 +62,12 @@ public class Controller {
 
                     break;
                 case "3":
-
-
+                    System.out.println("-------------------------------------------");
+                    for (int i = 0; i <orderArr.size() ; i++) {
+                        System.out.println(orderArr.get(i));
+                    }
+                    System.out.println("-------------------------------------------");
+                    Controller.showMenu();
 
                     break;
                 case"4":
@@ -119,7 +116,7 @@ public class Controller {
         return scan.nextLine();
     }
 
-    static ArrayList<Order> orderArr = new ArrayList();
+
 
     public static void addOrder(String name, int phoneNumber, int pizzaIndex){
 
@@ -129,13 +126,29 @@ public class Controller {
         Date date = new Date();
 
 
-
-
-        addedOrder = new Order(1,date.toString(),menu.getArray(pizzaIndex,1),name,phoneNumber);
+        addedOrder = new Order(orderId,date.toString(),menu.getArray(pizzaIndex,1),name,phoneNumber);
 
         orderArr.add(addedOrder);
     }
 
+
+    public static void addOrderTryCatch(){
+
+        boolean isSuccessful = false;
+
+        while (!isSuccessful) {
+            try {
+                Controller.addOrderController();
+                isSuccessful = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Phone number and pizzaID must be a number");
+                System.out.println("Try again");
+            } catch (ArrayIndexOutOfBoundsException f) {
+                System.out.println("Error: All fields must be filled");
+                System.out.println("Try again");
+            }
+        }
+    }
 
 
 }
