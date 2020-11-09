@@ -1,6 +1,6 @@
 package com.company;
 
-public class Pizza {
+public class Pizza implements Cloneable {
 
     public int pizzaNr;
     public String pizzaName;
@@ -24,4 +24,11 @@ public class Pizza {
                 ", price=" + price +
                 '}';
     }
+
+    public Object clone() throws
+            CloneNotSupportedException
+    {
+        return super.clone();
+    }
+
 }

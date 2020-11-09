@@ -1,11 +1,11 @@
 package com.company;
 
-import java.sql.SQLOutput;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Controller {
+
     private static Menu menu = new Menu();
 
 
@@ -24,6 +24,7 @@ public class Controller {
         boolean finish = false;
 
         while (!finish) {
+            menu.loadPizzaData();
             System.out.println("1) Add a new order");
             System.out.println("2) Show menu");
             System.out.println("3) Show current orders");
@@ -56,7 +57,7 @@ public class Controller {
 
                 case "2":
                     System.out.println("-------------------------------------------");
-                    menu.readMenu();
+
                     System.out.println("-------------------------------------------");
 
                     Controller.showMenu();
@@ -98,11 +99,18 @@ public class Controller {
 
     public static void removeAndSaveOrder(){
 
-//       int value = Integer.parseInt(scan.nextLine());
+       int value = Integer.parseInt(scan.nextLine());
 //       orderArr.remove(orderArr.contains(orderId = value));
-       orderArr.remove(0);
 
-       orderArr.contains(order)
+        for (int i = 0; i < orderArr.size(); i++) {
+            int tempValue = addedOrder.getOrderID();
+            if (orderArr.get(i).getOrderID() == tempValue) {
+                orderArr.remove(i);
+
+            }
+        }
+
+
 
 
 
@@ -110,26 +118,51 @@ public class Controller {
 
     public static void addOrderController() {
 
-        String tempOrder;
+        String input;
 
 
-        System.out.println("Enter name, phonenumber and pizza nr.");
-        tempOrder = promptForAnswer();
+        System.out.println("Enter name, phonenumber");
+        input = promptForAnswer();
 
         //Split input and convert string to int
-        String[] strAnswer = tempOrder.split("\\s");
+        String[] strAnswer = input.split("\\s");
 
         //convert string to int
-        int[] intAnswer = new int[2];
-        intAnswer[0] = Integer.parseInt(strAnswer[1]);
-        intAnswer[1] = Integer.parseInt(strAnswer[2]);
+        int phoneNumber = Integer.parseInt(strAnswer[1]);
 
+
+
+        Date date = new Date();
+        Order tempOrder = new Order(orderId++,date.toString(),strAnswer[0],phoneNumber);
+
+        addPizzaToOrder(tempOrder);
+
+        orderArr.add(tempOrder);
 
         //Add order to array
-        addOrder(strAnswer[0],intAnswer[0],intAnswer[1]);
         System.out.println("Order for " + strAnswer[0] + " added");
 
 
+    }
+
+    private static void addPizzaToOrder(Order tempOrder) {
+        String input;
+        System.out.println("Input pizza number input 0 for exit");
+        boolean finished = false;
+        while (!finished) {
+            input = promptForAnswer();
+            int intInput = Integer.parseInt(input);
+
+            if (intInput == 0){
+                finished = true;
+            } else {
+                try {
+                    tempOrder.addPizza((Pizza) menu.pizzaMenu.get(intInput - 1).clone());
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 
@@ -138,19 +171,6 @@ public class Controller {
     }
 
 
-
-    public static void addOrder(String name, int phoneNumber, int pizzaIndex){
-
-       // Menu menu = new Menu();
-        menu.menuToArray();
-
-        Date date = new Date();
-
-
-        addedOrder = new Order(orderId,date.toString(),menu.getArray(pizzaIndex,1),name,phoneNumber);
-
-        orderArr.add(addedOrder);
-    }
 
 
     public static void addOrderTryCatch(){
