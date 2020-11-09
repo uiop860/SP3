@@ -1,6 +1,6 @@
 package com.company;
 
-public class Pizza {
+public class Pizza implements Cloneable {
 
     public int pizzaNr;
     public String pizzaName;
@@ -17,11 +17,15 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "pizzaNr=" + pizzaNr +
-                ", pizzaName='" + pizzaName + '\'' +
-                ", ingredients='" + ingredients + '\'' +
-                ", price=" + price +
-                '}';
+        return "Pizza nr. " + pizzaNr +
+                 "  " +pizzaName +
+                 "\t \t Ingredients: " + ingredients +
+                " \tPrice:" + price + " Kr\t";
+    }
+
+    public Object clone() throws
+            CloneNotSupportedException
+    {
+        return super.clone();
     }
 }
