@@ -13,7 +13,7 @@ public class Controller {
 
 
 
-    static int orderId = 0;
+    static int orderId = 1;
     static ArrayList<Order> orderArr = new ArrayList();
     private static Order addedOrder;
     static Scanner scan = new Scanner(System.in);
@@ -38,20 +38,7 @@ public class Controller {
                     boolean isAlsoSuccessful =false;
 
                     Controller.addOrderTryCatch();
-
-                    while(!isAlsoSuccessful) {
-                        System.out.println("-------------------------------------------");
-                        System.out.println("1) Add another pizza");
-                        System.out.println("2) Finish your order");
-                        if (scan.nextLine().equals("1")) {
-                            Controller.addOrderTryCatch();
-
-                        } else {
-                            orderId = orderId + 1;
-                            Controller.showMenu();
-                            isAlsoSuccessful = true;
-                        }
-                    }
+                    Controller.showMenu();
 
                     break;
 
@@ -147,7 +134,7 @@ public class Controller {
 
     private static void addPizzaToOrder(Order tempOrder) {
         String input;
-        System.out.println("Input pizza number input 0 for exit");
+        System.out.println("Input pizza number. input 0 for exit");
         boolean finished = false;
         while (!finished) {
             input = promptForAnswer();
@@ -158,6 +145,7 @@ public class Controller {
             } else {
                 try {
                     tempOrder.addPizza((Pizza) menu.pizzaMenu.get(intInput - 1).clone());
+                    System.out.println("Pizza added to order");
                 } catch (CloneNotSupportedException e) {
                     e.printStackTrace();
                 }
