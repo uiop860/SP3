@@ -18,9 +18,9 @@ public class Pizza implements Cloneable {
     @Override
     public String toString() {
         return "Pizza nr. " + pizzaNr +
-                 "  " +pizzaName +
-                 "\t \t Ingredients: " + ingredients +
-                " \tPrice:" + price + " Kr\t";
+                "  " +pizzaName +
+                "\t \t Ingredients: " + ingredients +
+                " \tPrice:" + price + " Kr";
     }
 
     public Object clone() throws

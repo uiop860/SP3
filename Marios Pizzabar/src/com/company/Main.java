@@ -1,21 +1,16 @@
 package com.company;
 
+import java.util.Date;
+
 public class Main {
 
     public static void main(String[] args) {
-
-
-//        Orders orders = new Orders();
+//        Date date = new Date();
+//        Order order = new Order(1,date.toString(),"fisk",21121212 );
 //
-//        orders.addOrder("Susanne",23213243,0);
-//        orders.addOrder("Anders",83463271,2);
-//
-//        System.out.println(orders.orderArr.get(0).toString());
-//        System.out.println(orders.orderArr.get(1).toString());
-
+//        order.pizzaToString();
 
         Controller.showMenu();
-
 
 
     }

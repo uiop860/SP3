@@ -9,7 +9,7 @@ public class Order  {
     public String name;
     public int phoneNumber;
     public String date;
-    private ArrayList<Pizza> Pizzas = new ArrayList();
+    private ArrayList<Pizza> pizzas = new ArrayList();
 
     public Order(int orderID, String date, String name, int phoneNumber) {
         this.orderID = orderID;
@@ -19,19 +19,33 @@ public class Order  {
 
     }
 
+    @Override
+    public String toString() {
+        return  "orderID: " + orderID +
+                "\tname: " + name +
+                "\tphoneNumber: " + phoneNumber +
+                "\tdate: " + date ;
+    }
 
     public int getOrderID() {
         return orderID;
     }
 
-    public ArrayList<Pizza> getPizzas() {
-
-        return Pizzas;
+    public void pizzaArrPrinter(){
+        for (Pizza pizza : pizzas) {
+            System.out.println("\t"+pizza.toString());
+        }
     }
 
     public void addPizza(Pizza pizza){
-        Pizzas.add(pizza);
+        pizzas.add(pizza);
+    }
 
+    public int getPizzasLength(){
+        return pizzas.size();
+    }
+    public String getPizzasAsString(int i){
+        return pizzas.get(i).toString();
     }
 
 

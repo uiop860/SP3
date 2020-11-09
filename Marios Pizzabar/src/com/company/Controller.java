@@ -1,5 +1,7 @@
 package com.company;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -48,7 +50,7 @@ public class Controller {
                     System.out.println("-------------------------------------------");
                     for (Order order : orderArr) {
                         System.out.println(order);
-                        System.out.println(order.getPizzas());
+                        order.pizzaArrPrinter();
 
                     }
                     System.out.println("-------------------------------------------");
@@ -81,7 +83,26 @@ public class Controller {
 
         Predicate<Order> condition = orderArr -> orderArr.getOrderID() == orderIdInput;
 
-        orderArr.removeIf(condition);
+        for (int i = 0; i < orderArr.size(); i++) {
+            if (orderArr.get(i).getOrderID() == orderIdInput){
+                try {
+                    FileWriter myWriter = new FileWriter("testFile.txt");
+                    for (int j = 0; j < orderArr.get(i).getPizzasLength() ; j++) {
+                        myWriter.write(orderArr.get(i).getPizzasAsString(j)+"\n");
+                    }
+                    myWriter.close();
+
+                } catch (IOException e) {
+                    System.out.println("An error occurred.");
+                    e.printStackTrace();
+                }
+                orderArr.removeIf(condition);
+            }
+        }
+//
+
+
+
 
 
     }
@@ -96,7 +117,7 @@ public class Controller {
                 Controller.addOrderController();
                 isSuccessful = true;
             } catch (NumberFormatException e) {
-                System.out.println("Error: Phone number and pizzaID must be a number");
+                System.out.println("Error: Phone number must be a number");
                 System.out.println("Try again");
             } catch (ArrayIndexOutOfBoundsException f) {
                 System.out.println("Error: All fields must be filled");
