@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Controller {
 
     private static Menu menu = new Menu();
+    Order order;
 
 
     // ui interface
@@ -44,7 +45,9 @@ public class Controller {
 
                 case "2":
                     System.out.println("-------------------------------------------");
-
+                    for (int i = 0; i < menu.pizzaMenu.size(); i++) {
+                        System.out.println(menu.pizzaMenu.get(i));
+                    }
                     System.out.println("-------------------------------------------");
 
                     Controller.showMenu();
@@ -54,6 +57,11 @@ public class Controller {
                     System.out.println("-------------------------------------------");
                     for (Order order : orderArr) {
                         System.out.println(order);
+                        System.out.println(order.getPizzas());
+
+
+
+
                     }
                     System.out.println("-------------------------------------------");
                     Controller.showMenu();
@@ -86,22 +94,15 @@ public class Controller {
 
     public static void removeAndSaveOrder(){
 
-       int value = Integer.parseInt(scan.nextLine());
-//       orderArr.remove(orderArr.contains(orderId = value));
-
-        for (int i = 0; i < orderArr.size(); i++) {
-            int tempValue = addedOrder.getOrderID();
-            if (orderArr.get(i).getOrderID() == tempValue) {
-                orderArr.remove(i);
 
             }
-        }
 
 
 
 
 
-    }
+
+
 
     public static void addOrderController() {
 
@@ -157,7 +158,6 @@ public class Controller {
     public static String promptForAnswer() {
         return scan.nextLine();
     }
-
 
 
 

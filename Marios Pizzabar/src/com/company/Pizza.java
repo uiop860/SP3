@@ -17,12 +17,10 @@ public class Pizza implements Cloneable {
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "pizzaNr=" + pizzaNr +
-                ", pizzaName='" + pizzaName + '\'' +
-                ", ingredients='" + ingredients + '\'' +
-                ", price=" + price +
-                '}';
+        return "Pizza nr. " + pizzaNr +
+                 "  " +pizzaName +
+                 "\t \t Ingredients: " + ingredients +
+                " \tPrice:" + price + " Kr\t";
     }
 
     public Object clone() throws
@@ -30,5 +28,4 @@ public class Pizza implements Cloneable {
     {
         return super.clone();
     }
-
 }
