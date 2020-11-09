@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ public class Controller {
 
 
 
+    static int orderId = 0;
 
     private static Order addedOrder;
     static Scanner scan = new Scanner(System.in);
@@ -45,7 +47,16 @@ public class Controller {
                         }
                     }
                     System.out.println("-------------------------------------------");
+                    System.out.println("Would you like to add another pizza? ");
+                    if (scan.nextLine().equals("1")){
+                        Controller.addOrderController();
+                        orderId = orderId + 1;
+                    } else {
+                        orderId = orderId + 1;
+                        Controller.showMenu();
+                    }
                     Controller.showMenu();
+
                     break;
 
                 case "2":
@@ -57,6 +68,8 @@ public class Controller {
 
                     break;
                 case "3":
+
+
 
                     break;
                 case"4":
@@ -112,12 +125,17 @@ public class Controller {
        // Menu menu = new Menu();
         menu.menuToArray();
 
+        Date date = new Date();
 
-        int orderId = 1;
 
-        addedOrder = new Order(1,menu.getArray(pizzaIndex,1),name,phoneNumber);
+
+
+        addedOrder = new Order(1,date.toString(),menu.getArray(pizzaIndex,1),name,phoneNumber);
+
         orderArr.add(addedOrder);
     }
+
+
 
 }
 

@@ -9,12 +9,15 @@ public class Order  {
     public String pizza;
     public String name;
     public int phoneNumber;
+    public String date;
 
-    public Order(int orderID, String pizza, String name, int phoneNumber) {
+    public Order(int orderID, String date, String pizza, String name, int phoneNumber) {
         this.orderID = orderID;
         this.pizza = pizza;
         this.name = name;
         this.phoneNumber = phoneNumber;
+        this.date = date;
+
     }
 
 
