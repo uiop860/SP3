@@ -44,8 +44,9 @@ public class Order  {
     public int getPizzasLength(){
         return pizzas.size();
     }
+
     public String getPizzasAsString(int i){
-        return pizzas.get(i).toString();
+        return pizzas.get(i).csvString();
     }
 
 

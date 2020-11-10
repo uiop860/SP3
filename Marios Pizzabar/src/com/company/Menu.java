@@ -30,7 +30,6 @@ public class Menu {
                 pizzaMenu.add(pizza);
             }
 
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -43,45 +42,7 @@ public class Menu {
                     e.printStackTrace();
                 }
             }
-
-
         }
     }
-
-
-//    public void menuToArray() {
-//
-//        String path = "Menu.csv";
-//        String line = "";
-//        BufferedReader br = null;
-//        String csvSplit = ",";
-//
-//        try {
-//            List<String[]> arrayMenu = new ArrayList<String[]>();
-//            br = new BufferedReader(new FileReader(path));
-//            while ((line = br.readLine()) != null) {
-//                arrayMenu.add(line.split(csvSplit));
-//            }
-//            array = new String[arrayMenu.size()][0];
-//            arrayMenu.toArray(array);
-//
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            if (br != null) {
-//                try {
-//                    br.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//
-//        }
-//    }
-
-
 }
 

@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -13,20 +14,33 @@ public class Controller {
     private static Menu menu = new Menu();
     private static ArrayList<Order> orderArr = new ArrayList();
     public static int orderId = 1;
+    public static Date date = new Date();
+    public static FileWriter myWriter;
 
 
     public static void showMenu() {
         menu.loadPizzaData();
         boolean finish = false;
 
-        while (!finish) {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
 
+
+        try {
+            myWriter = new FileWriter(date+".csv",true);
+            myWriter.write("OrderID, PizzaNr, PizzaName, Ingredients, Price, Currency\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        while (!finish) {
+            System.out.println("-------------------------------------------");
             System.out.println("1) Add a new order");
             System.out.println("2) Show menu");
             System.out.println("3) Show current orders");
             System.out.println("4) Remove and save order");
             System.out.println("9) Exit program");
-
+            System.out.println("-------------------------------------------");
 
             switch (scan.nextLine()) {
                 case "1":
@@ -51,7 +65,6 @@ public class Controller {
                     for (Order order : orderArr) {
                         System.out.println(order);
                         order.pizzaArrPrinter();
-
                     }
                     System.out.println("-------------------------------------------");
 
@@ -64,6 +77,7 @@ public class Controller {
                     System.out.println("Enter OrderId to remove order");
                     Controller.removeAndSaveOrder(Integer.parseInt(Controller.promptForAnswer()));
                     System.out.println("Order has been removed");
+                    System.out.println("-------------------------------------------");
                     
 
                     break;
@@ -71,9 +85,13 @@ public class Controller {
                     System.out.println("-------------------------------------------");
                     System.out.println("Closing down the system");
                     System.out.println("-------------------------------------------");
+                    try {
+                        myWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     finish=true;
                     break;
-
             }
 
         }
@@ -87,12 +105,10 @@ public class Controller {
         for (int i = 0; i < orderArr.size(); i++) {
             if (orderArr.get(i).getOrderID() == orderIdInput){
                 try {
-                    FileWriter myWriter = new FileWriter("testFile.txt");
-                    for (int j = 0; j < orderArr.get(i).getPizzasLength() ; j++) {
-                        myWriter.write(orderArr.get(i).getPizzasAsString(j)+"\n");
-                    }
-                    myWriter.close();
 
+                    for (int j = 0; j < orderArr.get(i).getPizzasLength() ; j++) {
+                        myWriter.write(new StringBuilder().append( orderArr.get(i).getOrderID())+", "+(orderArr.get(i).getPizzasAsString(j))+"\n");
+                    }
                 } catch (IOException e) {
                     System.out.println("An error occurred.");
                     e.printStackTrace();
@@ -121,11 +137,11 @@ public class Controller {
         }
     }
 
+
+
     public static void addOrderController() {
 
         String input;
-        Date date = new Date();
-
 
         System.out.println("Enter name, phonenumber");
         input = promptForAnswer();
@@ -137,7 +153,17 @@ public class Controller {
         int phoneNumber = Integer.parseInt(strAnswer[1]);
 
         Order tempOrder = new Order(orderId++,date.toString(),strAnswer[0],phoneNumber);
-        addPizzaToOrder(tempOrder);
+
+        boolean successful = false;
+        while(!successful){
+            try {
+                addPizzaToOrder(tempOrder);
+                successful = true;
+            }catch (Exception e){
+                System.out.println("Sicke thats the wrong number");
+            }
+        }
+
         orderArr.add(tempOrder);
         System.out.println("Order for " + strAnswer[0] + " added");
 
@@ -146,12 +172,12 @@ public class Controller {
 
     private static void addPizzaToOrder(Order tempOrder) {
         String input;
-        System.out.println("Input pizza number. input 0 for exit");
         boolean finished = false;
+        System.out.println("Input pizza number. input 0 for exit");
+
         while (!finished) {
             input = promptForAnswer();
-            int intInput = Integer.parseInt(input);
-
+            int  intInput = Integer.parseInt(input);
             if (intInput == 0){
                 finished = true;
             } else {
