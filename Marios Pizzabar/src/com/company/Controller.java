@@ -18,6 +18,7 @@ public class Controller {
     public static FileWriter myWriter;
 
 
+    // @author Magnus
     public static void showMenu() {
         menu.loadPizzaData();
         boolean finish = false;
@@ -98,6 +99,7 @@ public class Controller {
     }
 
 
+    // @author Aleksander
     public static void removeAndSaveOrder(int orderIdInput){
 
         Predicate<Order> condition = orderArr -> orderArr.getOrderID() == orderIdInput;
@@ -119,6 +121,7 @@ public class Controller {
     }
 
 
+    // @author Lukas
     public static void addOrderTryCatch(){
 
         boolean isSuccessful = false;
@@ -139,6 +142,7 @@ public class Controller {
 
 
 
+    // @author magnus
     public static void addOrderController() {
 
         String input;
@@ -170,6 +174,7 @@ public class Controller {
 
     }
 
+    // @author Oliver
     private static void addPizzaToOrder(Order tempOrder) {
         String input;
         boolean finished = false;
@@ -191,6 +196,7 @@ public class Controller {
         }
     }
 
+    // @author Aleksander
     public static String promptForAnswer() {
         return scan.nextLine();
     }
