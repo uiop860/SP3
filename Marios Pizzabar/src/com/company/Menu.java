@@ -4,12 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 
 
-
+// @author Lukas
 public class Menu {
 
     public ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
-
+    // @author Magnus
     public void loadPizzaData() {
 
         String path = "MenuIngredients.csv";

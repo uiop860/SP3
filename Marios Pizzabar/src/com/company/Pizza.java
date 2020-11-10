@@ -1,5 +1,6 @@
 package com.company;
 
+// @author Oliver
 public class Pizza implements Cloneable {
 
     public int pizzaNr;
@@ -14,7 +15,7 @@ public class Pizza implements Cloneable {
         this.price = price;
     }
 
-
+    // @author Aleksander
     @Override
     public String toString() {
         return "Pizza nr. " + pizzaNr +
@@ -23,10 +24,12 @@ public class Pizza implements Cloneable {
                 " \tPrice:" + price + " Kr";
     }
 
+    // @author Magnus
     public String csvString(){
         return pizzaNr+", "+pizzaName+", "+ingredients+", "+price+ ", kr";
     }
 
+    // @author Lukas
     public Object clone() throws
             CloneNotSupportedException
     {

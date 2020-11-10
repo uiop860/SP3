@@ -3,6 +3,7 @@ package com.company;
 
 import java.util.ArrayList;
 
+// @author Lukas
 public class Order  {
 
     public int orderID;
@@ -19,6 +20,7 @@ public class Order  {
 
     }
 
+    // @author Magnus
     @Override
     public String toString() {
         return  "orderID: " + orderID +
@@ -27,24 +29,29 @@ public class Order  {
                 "\tdate: " + date ;
     }
 
+    // @author Oliver
     public int getOrderID() {
         return orderID;
     }
 
+    // @author Aleksander
     public void pizzaArrPrinter(){
         for (Pizza pizza : pizzas) {
             System.out.println("\t"+pizza.toString());
         }
     }
 
+    // @author Lukas
     public void addPizza(Pizza pizza){
         pizzas.add(pizza);
     }
 
+    // @author Magnus
     public int getPizzasLength(){
         return pizzas.size();
     }
 
+    // @author Aleksander
     public String getPizzasAsString(int i){
         return pizzas.get(i).csvString();
     }
