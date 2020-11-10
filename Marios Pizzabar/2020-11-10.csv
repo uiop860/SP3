@@ -1,0 +1,14 @@
+OrderID, PizzaNr, PizzaName, Ingredients, Price, Currency
+1, 1, Vesuvio, Tomatsauce ost oregano skinke , 57, kr
+1, 5, Dennis, Tomatsauce ost oregano pepperoni cocktailpoelser, 65, kr
+1, 4, Carbona, Tomatsauce ost oregano koedsauce spaghetti cocktailpoelser, 63, kr
+1, 9, Toronfo, Tomatsauce ost oregano skinke champignon, 61, kr
+1, 10, Capricciosa, Tomatsauce ost oregano skinke champignon, 61, kr
+2, 6, Bertil, Tomatsauce ost oregano bacon, 57, kr
+2, 1, Vesuvio, Tomatsauce ost oregano skinke , 57, kr
+2, 2, Amerikaner, Tomatsauce ost oregano oksefars , 53, kr
+3, 8, Victoria, Tomatsauce ost oregano ananas champignon skinke loeg, 61, kr
+3, 10, Capricciosa, Tomatsauce ost oregano skinke champignon, 61, kr
+3, 5, Dennis, Tomatsauce ost oregano pepperoni cocktailpoelser, 65, kr
+3, 14, Mafia, Tomatsauce ost oregano pepperoni bacon loeg, 61, kr
+4, 8, Victoria, Tomatsauce ost oregano ananas champignon skinke loeg, 61, kr
