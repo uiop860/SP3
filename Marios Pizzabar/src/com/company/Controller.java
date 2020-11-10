@@ -16,11 +16,11 @@ public class Controller {
 
 
     public static void showMenu() {
-
+        menu.loadPizzaData();
         boolean finish = false;
 
         while (!finish) {
-            menu.loadPizzaData();
+
             System.out.println("1) Add a new order");
             System.out.println("2) Show menu");
             System.out.println("3) Show current orders");
@@ -32,7 +32,7 @@ public class Controller {
                 case "1":
 
                     Controller.addOrderTryCatch();
-                    Controller.showMenu();
+
 
                     break;
 
@@ -43,7 +43,7 @@ public class Controller {
                     }
                     System.out.println("-------------------------------------------");
 
-                    Controller.showMenu();
+
 
                     break;
                 case "3":
@@ -54,7 +54,7 @@ public class Controller {
 
                     }
                     System.out.println("-------------------------------------------");
-                    Controller.showMenu();
+
 
                     break;
                 case"4":
@@ -64,17 +64,18 @@ public class Controller {
                     System.out.println("Enter OrderId to remove order");
                     Controller.removeAndSaveOrder(Integer.parseInt(Controller.promptForAnswer()));
                     System.out.println("Order has been removed");
-                    Controller.showMenu();
+                    
 
                     break;
                 case "9":
                     System.out.println("-------------------------------------------");
                     System.out.println("Closing down the system");
                     System.out.println("-------------------------------------------");
+                    finish=true;
                     break;
 
             }
-            finish=true;
+
         }
     }
 
