@@ -1,0 +1,14 @@
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Vesuvio", "Tomatsauce ost oregano skinke",57);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Amerikaner","Tomatsauce ost oregano oksefars",53);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Cacciatore","Tomatsauce ost oregano pepperoni",57);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Carbona","Tomatsauce ost oregano koedsauce spaghetti cocktailpoelser",63);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Dennis","Tomatsauce ost oregano pepperoni cocktailpoelser",65);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Bertil","Tomatsauce ost oregano bacon",57);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Silvia","Tomatsauce ost oregano pepperoni roed peber loeg oliven",61);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Victoria","Tomatsauce ost oregano ananas champignon skinke loeg",61);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Toronfo","Tomatsauce ost oregano skinke champignon",61);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Capricciosa","Tomatsauce ost oregano skinke champignon",61);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Hawai","Tomatsauce ost oregano skinke ananas",61);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Le Blissola","Tomatsauce ost oregano skinke ananas",61);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Venezia","Tomatsauce ost oregano bacon skinke",61);
+insert into pizzamenu (MenuPizzaName,MenuIngredients,MenuPrice) VALUES ("Mafia","Tomatsauce ost oregano pepperoni bacon loeg",61);
