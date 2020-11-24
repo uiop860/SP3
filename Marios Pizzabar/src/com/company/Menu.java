@@ -1,4 +1,4 @@
-package com.company;
+ /*package com.company;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 // @author Lukas
 public class Menu {
+
 
     public ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
@@ -45,4 +46,4 @@ public class Menu {
         }
     }
 }
-
+*/
