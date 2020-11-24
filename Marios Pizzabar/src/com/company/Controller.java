@@ -139,6 +139,10 @@ public class Controller {
     // @author magnus
     public void addOrderController() {
 
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+
         String input;
 
         System.out.println("Enter name, phonenumber");
