@@ -35,4 +35,20 @@ public class Pizza implements Cloneable {
     {
         return super.clone();
     }
+
+    public int getPizzaNr() {
+        return pizzaNr;
+    }
+
+    public String getPizzaName() {
+        return pizzaName;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }

@@ -56,5 +56,15 @@ public class Order  {
         return pizzas.get(i).csvString();
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Pizza getPizzas(int i) {
+        return pizzas.get(i);
+    }
 }

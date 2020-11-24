@@ -14,6 +14,7 @@ public class Controller {
     private  Scanner scan = new Scanner(System.in);
     private  ArrayList<Order> orderArr = new ArrayList();
     private Connection con;
+    private int orderID = 0;
 
 
     // @author Magnus
@@ -25,6 +26,8 @@ public class Controller {
                     "hitman123");
 
             con.getMenuFromDatabase();
+            orderID = con.getOrderIDFromDatabase() + 1;
+
 
 
 
@@ -43,7 +46,7 @@ public class Controller {
                 switch (scan.nextLine()) {
                     case "1":
 
-                        Controller.addOrderTryCatch();
+                        addOrderTryCatch();
 
 
                         break;
@@ -73,7 +76,7 @@ public class Controller {
 
                         System.out.println("-------------------------------------------");
                         System.out.println("Enter OrderId to remove order");
-                        Controller.removeAndSaveOrder(Integer.parseInt(Controller.promptForAnswer()));
+                        removeAndSaveOrder(Integer.parseInt(promptForAnswer()));
                         System.out.println("Order has been removed");
                         System.out.println("-------------------------------------------");
 
@@ -83,6 +86,7 @@ public class Controller {
                         System.out.println("-------------------------------------------");
                         System.out.println("Closing down the system");
                         System.out.println("-------------------------------------------");
+                        con.close();
                         finish=true;
                         break;
                 }
@@ -101,19 +105,19 @@ public class Controller {
 
         for (int i = 0; i < orderArr.size(); i++) {
             if (orderArr.get(i).getOrderID() == orderIdInput){
-                try {
+                con.insertOrderIntoDatabase(orderArr.get(i).getName(),orderArr.get(i).getPhoneNumber());
+                for (int j = 0; j < orderArr.get(i).getPizzasLength(); j++) {
+                    con.insertPizzasIntoDatabase(orderArr.get(i).getPizzas(j).getPizzaNr(),orderArr.get(i).getPizzas(j).getPizzaName(),
+                            orderArr.get(i).getPizzas(j).getIngredients(),orderArr.get(i).getPizzas(j).getPrice(),orderIdInput);
+                }
 
-                    for (int j = 0; j < orderArr.get(i).getPizzasLength() ; j++) {
-                        myWriter.write(new StringBuilder().append( orderArr.get(i).getOrderID())+", "+(orderArr.get(i).getPizzasAsString(j))+"\n");
-                    }
-                } catch (IOException e) {
-                    System.out.println("An error occurred.");
-                    e.printStackTrace();
+
+
                 }
                 orderArr.removeIf(condition);
             }
         }
-    }
+
 
     // @author Lukas
     public void addOrderTryCatch(){
@@ -122,7 +126,7 @@ public class Controller {
 
         while (!isSuccessful) {
             try {
-                controller.addOrderController();
+                addOrderController();
                 isSuccessful = true;
             } catch (NumberFormatException e) {
                 System.out.println("Error: Phone number must be a number");
@@ -139,9 +143,11 @@ public class Controller {
     // @author magnus
     public void addOrderController() {
 
+        Date date = new Date();
+
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(new Date());
+        String currentDate = simpleDateFormat.format(new Date());
 
         String input;
 
@@ -154,7 +160,7 @@ public class Controller {
         //convert string to int
         int phoneNumber = Integer.parseInt(strAnswer[1]);
 
-        Order tempOrder = new Order(,date.toString(),strAnswer[0],phoneNumber);
+        Order tempOrder = new Order(orderID,date.toString(),strAnswer[0],phoneNumber);
 
         boolean successful = false;
         while(!successful){

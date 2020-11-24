@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `PizzaSP3`.`PizzaOrder` (
   `PizzaOrderID` INT NOT NULL AUTO_INCREMENT,
   `PizzaNR` INT NULL,
   `PizzaName` VARCHAR(45) NULL,
-  `Ingredients` VARCHAR(45) NULL,
+  `Ingredients` VARCHAR(255) NULL,
   `Price` INT NULL,
   `Saved_pizza_orders_orderID` INT NOT NULL,
   PRIMARY KEY (`PizzaOrderID`),
