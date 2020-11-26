@@ -24,10 +24,6 @@ public class Pizza implements Cloneable {
                 " \tPrice:" + price + " Kr";
     }
 
-    // @author Magnus
-    public String csvString(){
-        return pizzaNr+", "+pizzaName+", "+ingredients+", "+price+ ", kr";
-    }
 
     // @author Lukas
     public Object clone() throws

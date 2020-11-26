@@ -47,7 +47,7 @@ public class Controller {
                     case "1":
 
                         addOrderTryCatch();
-
+                        orderID += 1;
 
                         break;
 
@@ -149,10 +149,9 @@ public class Controller {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String currentDate = simpleDateFormat.format(new Date());
 
-        String input;
 
         System.out.println("Enter name, phonenumber");
-        input = promptForAnswer();
+        String input = promptForAnswer();
 
         //Split input
         String[] strAnswer = input.split("\\s");
@@ -171,6 +170,12 @@ public class Controller {
                 System.out.println("Sicke thats the wrong number");
             }
         }
+        System.out.println("Enter pickup time");
+        int pickupTime = Integer.parseInt(promptForAnswer());
+
+        tempOrder.setPickupTime(pickupTime);
+
+
 
         orderArr.add(tempOrder);
         System.out.println("Order for " + strAnswer[0] + " added");
@@ -204,6 +209,7 @@ public class Controller {
     public String promptForAnswer() {
         return scan.nextLine();
     }
+
 
 }
 

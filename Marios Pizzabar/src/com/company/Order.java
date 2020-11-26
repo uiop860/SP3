@@ -10,6 +10,7 @@ public class Order  {
     public String name;
     public int phoneNumber;
     public String date;
+    public int pickupTime;
     private ArrayList<Pizza> pizzas = new ArrayList();
 
     public Order(int orderID, String date, String name, int phoneNumber) {
@@ -26,7 +27,8 @@ public class Order  {
         return  "orderID: " + orderID +
                 "\tname: " + name +
                 "\tphoneNumber: " + phoneNumber +
-                "\tdate: " + date ;
+                "\tdate: " + date +
+                "\tPickup time: " + pickupTime;
     }
 
     // @author Oliver
@@ -51,11 +53,6 @@ public class Order  {
         return pizzas.size();
     }
 
-    // @author Aleksander
-    public String getPizzasAsString(int i){
-        return pizzas.get(i).csvString();
-    }
-
     public String getName() {
         return name;
     }
@@ -66,5 +63,9 @@ public class Order  {
 
     public Pizza getPizzas(int i) {
         return pizzas.get(i);
+    }
+
+    public void setPickupTime(int pickupTime) {
+        this.pickupTime = pickupTime;
     }
 }
